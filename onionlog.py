@@ -33,17 +33,11 @@ class OnionLog:
 
     @property
     def min_executed_qty(self) -> int:
-        ex_qty = self.executed_qty_list
-        if len(ex_qty) == 0:        
-            return 0
-        return min(ex_qty)
+        return 0 if len(self.executed_qty_list) == 0 else min(self.executed_qty_list)         
 
     @property
     def max_executed_qty(self) -> int:
-        ex_qty = self.executed_qty_list
-        if len(ex_qty) == 0:        
-            return 0
-        return max(ex_qty)
+        return 0 if len(self.executed_qty_list) == 0 else max(self.executed_qty_list)
 
     @property
     def len_log_lines(self) -> int:
@@ -77,9 +71,7 @@ class OnionLog:
         return [line.log_time for line in self.running_lines]
 
     def calculate_average(self) -> float:
-        if self.len_log_lines == 0:
-            return 0
-        self.average_executed =  self.sum_log_lines / self.len_log_lines
+        self.average_executed = self.sum_log_lines / self.len_log_lines if self.len_log_lines > 0 else 0          
     
     def print_info_lines(self):
         for info in self.info_lines:
