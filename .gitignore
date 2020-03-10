@@ -1,0 +1,6 @@
+venv_win
+venv_linux
+.vscode
+.idea
+__pycache__
+plot/*png
