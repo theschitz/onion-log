@@ -4,3 +4,4 @@ venv_linux
 .idea
 __pycache__
 plot/*png
+*.log
