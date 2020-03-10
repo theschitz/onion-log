@@ -16,13 +16,3 @@ class Duration():
     @property
     def datetime_delta(self) -> timedelta:
         return self.end_datetime - self.start_datetime
-
-
-def test_duration():
-    duration = Duration('2020-02-18 09:48:21,847', '2020-02-19 03:02:22,157', '%Y-%m-%d %H:%M:%S,%f')
-    print(duration)
-    print(repr(duration))
-    
-
-if __name__ == '__main__':
-    test_duration()
