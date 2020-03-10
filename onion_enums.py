@@ -1,6 +1,5 @@
 from enum import Enum
 
-
 class LogLineType(Enum):
     START = 0
     STOP = 1
