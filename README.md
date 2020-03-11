@@ -13,7 +13,7 @@ python -m venv venv_name
 Activate venv
 
 ```bash
- ./venv_win/Scripts/activate
+ ./venv_name/Scripts/activate
  ```
 
 Install requirements
