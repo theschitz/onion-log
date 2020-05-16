@@ -1,5 +1,5 @@
 venv_win
-venv_linux
+env
 .vscode
 .idea
 __pycache__
