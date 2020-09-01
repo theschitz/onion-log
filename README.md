@@ -13,11 +13,14 @@ python -m venv venv_name
 Activate venv
 
 ```bash
- ./venv_name/Scripts/activate
+source ./venv_name/Scripts/activate
+or
+source ./venv_name/bin/activate 
+
  ```
 
 Install requirements
 
 ```bash
-pip install -r requirements.txt
+(venv_name)$ pip install -r requirements.txt
 ```
