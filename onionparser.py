@@ -34,8 +34,8 @@ class OnionParser:
 def main():
     parser = OnionParser(datetime_str_fmt='%Y-%m-%d %H:%M:%S,%f')
     logs: List[OnionLog] = parser.parse('prod.log')
-    for log in logs:
-        print(log)        
+    for log in [x for x in logs if x.code in ['CREATE-INV.CR-MEMO', 'POST-INVOICE']]:
+        print(log)
         log.print_info_lines()
         if log.len_log_lines > 0:
             print('Min:', log.min_executed_qty)

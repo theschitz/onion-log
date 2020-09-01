@@ -21,7 +21,7 @@ def main():
     if plt:
         plt.ylabel('Processed Contracts')
         plt.title('Create Invoices')
-        plt.xlabel('Log point (1 step = 15 minutes)')        
+        plt.xlabel('Log point (1 step = 15 minutes)')
         plt.legend()
         plt.grid(True)
         plt.savefig(f'plot/{log.category}.png', dpi=300)
