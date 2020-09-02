@@ -9,8 +9,11 @@ class TableInformationSnapshotParser:
         with open(filepath, encoding=encoding) as csvfile:
             csv_reader = csv.DictReader(csvfile, delimiter=delimiter)
             table_information_snapshot = TableInformationSnapshot()
+            first = True
             for row in csv_reader:
-                table_information_snapshot.table_snapshots.append(TableSnapshot(row))
+                if not first:
+                    table_information_snapshot.table_snapshots.append(TableSnapshot(row))
+                first = False
         return table_information_snapshot
 
 class TableInformationSnapshot():

@@ -10,13 +10,13 @@ class OnionParser:
     def __init__(self, datetime_str_fmt = '%Y-%m-%d %H:%M:%S.%f'):
         self.datetime_str_fmt = datetime_str_fmt
 
-    def parse(self, filepath) -> list:
+    def parse(self, filepath, delimiter: str = '\t') -> list:
         logs: [OnionLog] = []
         onion_log: OnionLog = None
-        with open(filepath, encoding='utf8') as f:        
+        with open(filepath, encoding='utf8') as f:
             for line in f.readlines()[1:]:
                 line = line.strip('\n')
-                log_line: LogLine = LogLine(line)
+                log_line: LogLine = LogLine(line, delimiter=delimiter)
                 
                 if log_line.type == LogLineType.START:
                     onion_log = OnionLog(log_line.group, log_line.category, log_line.code, log_line.log_time)
@@ -31,9 +31,9 @@ class OnionParser:
 
         return logs
 
-def main():
+def main(file_path: str, delimiter: str = '\t'):
     parser = OnionParser(datetime_str_fmt='%Y-%m-%d %H:%M:%S,%f')
-    logs: List[OnionLog] = parser.parse('prod.log')
+    logs: List[OnionLog] = parser.parse(file_path, delimiter=delimiter)
     for log in [x for x in logs if x.code in ['CREATE-INV.CR-MEMO', 'POST-INVOICE']]:
         print(log)
         log.print_info_lines()
@@ -43,4 +43,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main('data/invoicing_periods.csv')

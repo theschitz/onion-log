@@ -4,6 +4,7 @@ from duration import Duration
 from typing import List
 from onion_enums import LogLineType
 
+
 class OnionLog:
     """
     Onion Log Class
@@ -82,8 +83,8 @@ class LogLine:
     """
     Log Line Class
     """
-    def __init__(self, log_line: str):
-        line = log_line.split('\t')
+    def __init__(self, log_line: str, delimiter: str = '\t'):
+        line = log_line.split(delimiter)
         self.entry_no: int = int(line[0])
         self.category = line[1]
         self.code = line[2]

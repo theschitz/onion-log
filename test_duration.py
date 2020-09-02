@@ -19,5 +19,4 @@ class TestDuration(unittest.TestCase):
         duration = Duration(start_dt, end_dt, '%Y-%m-%d %H:%M:%S,%f')
         self.assertIsNotNone(duration.datetime_delta)
         self.assertIsInstance(duration.datetime_delta, datetime.timedelta)
-        self.assertEqual(duration.datetime_delta.days, 0)        
-        
+        self.assertEqual(duration.datetime_delta.days, 0)
